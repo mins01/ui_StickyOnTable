@@ -112,7 +112,7 @@ var StickyOnTable = {
 
 		for(let i2=0,m2=conf.top;i2<m2;i2++){
 
-			table.querySelectorAll(':scope > * > tr:nth-child('+(i2+1)+') > td , :scope > * > tr:nth-child('+(i2+1)+') > th').forEach((td, i) => {
+			table.rows[i2].querySelectorAll('.sot-cell').forEach((td, i) => {
 				let rectTd = td.getBoundingClientRect();
 				let top = rectTd.top - rectTable.top;
 				td.classList.add('sot-top');
