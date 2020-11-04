@@ -2,6 +2,7 @@
 	overflow: auto;
 	box-sizing: border-box;
 	border: 1px solid #ccc;
+	padding: 0;
 }
 .sot > table{
 	table-layout: fixed;
@@ -11,6 +12,7 @@
 	padding: 0;
 	margin: 0;
 	width:100%;
+	border-width:0px;
 }
 .sot-width-auto  > table{
 	width:auto;
