@@ -44,7 +44,7 @@ var StickyOnTable = {
 	"reset":function(ta){
 		ta.querySelectorAll(':scope > table > * > tr').forEach((tr, i) => {
 			for(const td of tr.cells ){
-				td.classList.remove('sot-top','sot-left','sot-right','sot-bottom')
+				td.classList.remove('sot-top','sot-left','sot-right','sot-bottom','sot-cell')
 				td.style.top = null;
 				td.style.left = null;
 				td.style.right = null;
@@ -99,13 +99,17 @@ var StickyOnTable = {
 	},
 	"applySticky":function(ta,conf) {
 		let table = ta.querySelector(':scope > table');
-
-		if(ta.scrollWidth > ta.offsetWidth ){
-			table.style.width="100%";
-		}else{
-			table.style.width="auto";
-		}
+		// if(ta.scrollWidth == ta.clientWidth  ){
+		// 	table.style.width="auto";
+		// }else{
+		// 	table.style.width="100%";
+		// }
 		let rectTable = table.getBoundingClientRect();
+
+		table.querySelectorAll(':scope > * > tr > td , :scope > * > tr > th').forEach((td, i) => {
+			td.classList.add('sot-cell');
+		});
+
 		for(let i2=0,m2=conf.top;i2<m2;i2++){
 
 			table.querySelectorAll(':scope > * > tr:nth-child('+(i2+1)+') > td , :scope > * > tr:nth-child('+(i2+1)+') > th').forEach((td, i) => {
