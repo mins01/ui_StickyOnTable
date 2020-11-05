@@ -53,27 +53,22 @@ const StickyOnTable = {
 			console.error("StickyOnTable.reset argument is invalid.");
 			return;
 		}
-		for(const tr of table.rows){
-			for(const td of tr.cells ){
-				td.classList.remove('sot-top','sot-left','sot-right','sot-bottom')
-				td.style.top = null;
-				td.style.left = null;
-				td.style.right = null;
-				td.style.bottom = null;
-			}
-		};
+		table.querySelectorAll(':scope > * > tr > .sot-top ,:scope > * > tr > .sot-left').forEach((td, i) => {
+			td.classList.remove('sot-top','sot-left')
+			td.style.top = null;
+			td.style.left = null;
+		});
 	},
 	"getRowCellCounts":function(table){
 		let rowCount = table.rows.length;
 		let cellCount = 0;
 		let tr,td;
-		for(const tr of table.rows){
-			let sum = 0;
-			for(const td of tr.cells){
-				sum+=td.colSpan;
+		if(table.rows[0]){
+			for(const td of table.rows[0].cells){
+				cellCount+=td.colSpan;
 			}
-			cellCount = Math.max(cellCount,sum)
-		};
+		}
+
 		return {rowCount:rowCount,cellCount:cellCount}
 	},
 	"setDataIdxforTable":function(table,rowCount,cellCount){
@@ -81,28 +76,18 @@ const StickyOnTable = {
 		for(const tr of table.rows){
 			let st = tr.rowIndex * cellCount;
 			for(const td of tr.cells){
-				td.removeAttribute('data-row-idx');
-				td.removeAttribute('data-cell-idx');
-				while(st < arr.length && arr[st]!==undefined ){
-					st++
-				}
-				if(st >= arr.length ){
-					break;
-				}
+				if(st >= arr.length ){ break; }
+				td.__sot_inited = true;
+				while(arr[st]!==undefined ){ st++ }
 				arr[st] = td;
-				for(let i=2,m=td.colSpan;i<=m;i++){
-					arr[st+(i-1)] = td;
-				}
-				for(let i=2,m=td.rowSpan;i<=m;i++){
-					arr[st+cellCount*(i-1)] = td;
-				}
+				for(let i=2,m=td.colSpan;i<=m;i++){ arr[st+(i-1)] = td; }
+				for(let i=2,m=td.rowSpan;i<=m;i++){ arr[st+cellCount*(i-1)] = td; }
 			}
 		};
 		for(let i=0,m=arr.length;i<m;i++){
 			const td = arr[i];
-			if(td.hasAttribute('data-row-idx')){
-				continue;
-			}
+			if(!td.__sot_inited){continue;}
+			delete td.__sot_inited;
 			td.setAttribute('data-row-idx',Math.floor(i/cellCount))
 			td.setAttribute('data-cell-idx',i%cellCount)
 		}
@@ -111,18 +96,31 @@ const StickyOnTable = {
 		let table = ta.querySelector(':scope > table');
 		let rectTable = table.getBoundingClientRect();
 
+		let tops = new Array(conf.rowCount);
 		for(let i2=0,m2=conf.top;i2<m2;i2++){
-			for(let td of table.rows[i2].cells){
-				let rectTd = td.getBoundingClientRect();
-				let top = rectTd.top - rectTable.top;
+			for(const td of table.rows[i2].cells){
+				//셀마다 getBoundingClientRect() 할 경우 느려지기에 캐싱처리한다.
+				const idx = parseInt(td.getAttribute('data-row-idx'),10);
+				let topTd = tops[idx];
+				if(topTd===undefined){
+					topTd = td.getBoundingClientRect().top;
+					tops[idx] = topTd;
+				}
+				let top = topTd - rectTable.top;
 				td.classList.add('sot-top');
 				td.style.top = top+'px';
 			};
 		}
+		let lefts = new Array(conf.cellCount);
 		for(let i2=0,m2=conf.left;i2<m2;i2++){
 			table.querySelectorAll(':scope td[data-cell-idx="'+i2+'"] , :scope th[data-cell-idx="'+i2+'"]').forEach((td, i) => {
-				let rectTd = td.getBoundingClientRect();
-				let left = rectTd.left - rectTable.left;
+				const idx = parseInt(td.getAttribute('data-cell-idx'),10);
+				let leftTd = lefts[idx];
+				if(leftTd===undefined){
+					leftTd = td.getBoundingClientRect().left;
+					lefts[idx] = leftTd;
+				}
+				let left = leftTd - rectTable.left;
 				td.classList.add('sot-left');
 				td.style.left = left+'px';
 			});
