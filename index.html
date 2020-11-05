@@ -40,6 +40,26 @@
 	<script src="StickyOnTable.js"></script>
 	<link rel="stylesheet" href="stickyOnTable.css">
 
+	<script>
+	window.onresize = function(){
+		StickyOnTable.apply(document.querySelector("#sot8"))
+		StickyOnTable.apply(document.querySelector("#sot9"))
+		StickyOnTable.apply(document.querySelector("#sot10"))
+
+	}
+	$(function(){
+		StickyOnTable.apply(document.querySelector("#sot2"))
+		StickyOnTable.apply(document.querySelector("#sot3"))
+		StickyOnTable.apply(document.querySelector("#sot4"))
+		StickyOnTable.apply(document.querySelector("#sot5"))
+		StickyOnTable.apply(document.querySelector("#sot6"))
+		StickyOnTable.apply(document.querySelector("body")) //일부로 에러냄
+		StickyOnTable.apply(document.querySelector("#sot8"))
+		StickyOnTable.apply(document.querySelector("#sot9"))
+		StickyOnTable.apply(document.querySelector("#sot10"))
+	})
+	</script>
+
 	<style>
 	.sot-top{
 		background-color: #abc !important;
@@ -186,15 +206,8 @@
 			</div>
 		</div>
 		<hr>
-		<script>
-		$(function(){
-			StickyOnTable.apply(document.querySelector("#sot2"))
-			StickyOnTable.apply(document.querySelector("#sot3"))
-			StickyOnTable.apply(document.querySelector("#sot4"))
-			StickyOnTable.apply(document.querySelector("#sot5"))
-			StickyOnTable.apply(document.querySelector("#sot6"))
-		})
-		</script>
+
+
 		<div class="my-3">
 			<h3 class="text-center">data-sot-top="0" data-sot-left="0"</h3>
 			<div id="sot2" class="sot" data-sot-top="0" data-sot-left="0"  style="width:300px; height:300px; margin:0 auto;">
@@ -571,16 +584,6 @@
 					</tr>
 				</table>
 			</div>
-			<script>
-			window.onresize = function(){
-				StickyOnTable.apply(document.querySelector("#sot8"))
-				StickyOnTable.apply(document.querySelector("#sot9"))
-			}
-			$(function(){
-				StickyOnTable.apply(document.querySelector("#sot8"))
-				StickyOnTable.apply(document.querySelector("#sot9"))
-			})
-			</script>
 			<div class="my-3">
 				<h3 class="text-center">sot-width-auto 가 없는 경우(내용이 넘어가지 않으면 table은 100%의 너비로 맞춰진다.)</h3>
 				<div id="sot8" class="sot" data-sot-top="3" data-sot-left="2"  style="width:100%; height:300px; margin:0 auto;">
@@ -639,6 +642,60 @@
 				<h3 class="text-center">sot-width-auto 가 있는경우 경우(table의 너비가 늘어나지 않는다, 줄어 들 수 있다.)</h3>
 				<div id="sot9" class="sot sot-width-auto" data-sot-top="3" data-sot-left="2"  style="width:100%; height:300px; margin:0 auto;">
 					<table>
+						<colgroup>
+							<col style="width:40px"><col style="width:20px"><col style="width:20px"><col style="width:20px"><col style="width:20px">
+							<col style="width:20px"><col style="width:20px"><col style="width:20px"><col style="width:20px"><col style="width:20px">
+						</colgroup>
+						<tr>
+							<td colspan="2">1</td>
+							<!-- <td>2</td> -->
+							<td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<td rowspan="2">2</td>
+							<td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+						</tr>
+						<tr>
+							<td>1</td>
+							<!-- <td>2</td> -->
+							<td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+						</tr>
+						<tr>
+							<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+						</tr>
+						<tr>
+							<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+						</tr>
+						<tr>
+							<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+						</tr>
+						<tr>
+							<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+						</tr>
+						<tr>
+							<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+						</tr>
+						<tr>
+							<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+						</tr>
+						<tr>
+							<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+						</tr>
+						<tr>
+							<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+						</tr>
+						<tr>
+							<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+						</tr>
+						<tr>
+							<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+						</tr>
+					</table>
+				</div>
+				<h3 class="text-center">sot속 테이블에 너비를 강제로 100px로 고정한 경우</h3>
+				<div id="sot10" class="sot " data-sot-top="3" data-sot-left="2"  style="width:100%; height:300px; margin:0 auto;">
+					<table style="width:100px !important">
 						<colgroup>
 							<col style="width:40px"><col style="width:20px"><col style="width:20px"><col style="width:20px"><col style="width:20px">
 							<col style="width:20px"><col style="width:20px"><col style="width:20px"><col style="width:20px"><col style="width:20px">
