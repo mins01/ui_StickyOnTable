@@ -14,18 +14,19 @@
 	width:100%;
 	border-width:0px;
 	overflow: visible;
+	background-color: #fff;
 }
 .sot-width-auto  > table{
 	width:auto;
 }
 .sot td ,.sot th{
 	border: 1px solid #ccc;
-	background-color: #fff;
 }
 .sot-top{
 	position: sticky;
 	top:0;
 	z-index: 20;
+	background-color: #fff;
 }
 .sot-left{
 	position: sticky;
