@@ -54,10 +54,10 @@
 		console.log('100x100 time',performance.now()-t);
 		t = performance.now()
 		StickyOnTable.apply(document.querySelector("#sot3"))
-		console.log('100x100 time',performance.now()-t);
+		console.log('200x100 time',performance.now()-t);
 		t = performance.now()
 		StickyOnTable.apply(document.querySelector("#sot4"))
-		console.log('100x100 time',performance.now()-t);
+		console.log('200x200 time',performance.now()-t);
 	};
 	function test(){
 		let icnt = 0 , t, table;
