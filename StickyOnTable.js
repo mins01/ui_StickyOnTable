@@ -144,7 +144,7 @@ const StickyOnTable = {
 				td.style.bottom = bottom+'px';
 			};
 		}
-console.log(tableTable);
+
 		let rights = new Array(conf.cellCount);
 		for(let i2=conf.cellCount-conf.right,m2=conf.cellCount;i2<m2;i2++){
 			table.querySelectorAll(':scope td[data-cell-idx="'+i2+'"] , :scope th[data-cell-idx="'+i2+'"]').forEach((td, i) => {
