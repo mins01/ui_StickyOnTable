@@ -53,10 +53,12 @@ const StickyOnTable = {
 			console.error("StickyOnTable.reset argument is invalid.");
 			return;
 		}
-		table.querySelectorAll(':scope > * > tr > .sot-top ,:scope > * > tr > .sot-left').forEach((td, i) => {
-			td.classList.remove('sot-top','sot-left')
+		table.querySelectorAll(':scope > * > tr > .sot-top ,:scope > * > tr > .sot-left,:scope > * > tr > .sot-bottom,:scope > * > tr > .sot-right').forEach((td, i) => {
+			td.classList.remove('sot-top','sot-left','sot-bottom','sot-right')
 			td.style.top = null;
 			td.style.left = null;
+			td.style.bottom = null;
+			td.style.right = null;
 		});
 	},
 	"getRowCellCounts":function(table){
@@ -92,9 +94,9 @@ const StickyOnTable = {
 			td.setAttribute('data-cell-idx',i%cellCount)
 		}
 	},
-	"applySticky":function(ta,conf) {
-		let table = ta.querySelector(':scope > table');
-		let rectTable = table.getBoundingClientRect();
+	"applySticky":function(div,conf) {
+		let table = div.querySelector(':scope > table');
+		let tableTable = table.getBoundingClientRect();
 
 		let tops = new Array(conf.rowCount);
 		for(let i2=0,m2=conf.top;i2<m2;i2++){
@@ -106,7 +108,7 @@ const StickyOnTable = {
 					topTd = td.getBoundingClientRect().top;
 					tops[idx] = topTd;
 				}
-				let top = topTd - rectTable.top;
+				let top = topTd - tableTable.top;
 				td.classList.add('sot-top');
 				td.style.top = top+'px';
 			};
@@ -120,9 +122,41 @@ const StickyOnTable = {
 					leftTd = td.getBoundingClientRect().left;
 					lefts[idx] = leftTd;
 				}
-				let left = leftTd - rectTable.left;
+				let left = leftTd - tableTable.left;
 				td.classList.add('sot-left');
 				td.style.left = left+'px';
+			});
+		}
+
+		// console.log(ta.);
+		let bottoms = new Array(conf.rowCount);
+		for(let i2=conf.rowCount-conf.bottom,m2=conf.rowCount;i2<m2;i2++){
+			for(const td of table.rows[i2].cells){
+				//셀마다 getBoundingClientRect() 할 경우 느려지기에 캐싱처리한다.
+				const idx = parseInt(td.getAttribute('data-row-idx'),10);
+				let bottomTd = bottoms[idx];
+				if(bottomTd===undefined){
+					bottomTd = td.getBoundingClientRect().bottom;
+					bottoms[idx] = bottomTd;
+				}
+				let bottom = tableTable.bottom-bottomTd ;
+				td.classList.add('sot-bottom');
+				td.style.bottom = bottom+'px';
+			};
+		}
+console.log(tableTable);
+		let rights = new Array(conf.cellCount);
+		for(let i2=conf.cellCount-conf.right,m2=conf.cellCount;i2<m2;i2++){
+			table.querySelectorAll(':scope td[data-cell-idx="'+i2+'"] , :scope th[data-cell-idx="'+i2+'"]').forEach((td, i) => {
+				const idx = parseInt(td.getAttribute('data-cell-idx'),10);
+				let rightTd = rights[idx];
+				if(rightTd===undefined){
+					rightTd = td.getBoundingClientRect().right;
+					rights[idx] = rightTd;
+				}
+				let right = tableTable.right - rightTd;
+				td.classList.add('sot-right');
+				td.style.right = right+'px';
 			});
 		}
 	}

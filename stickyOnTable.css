@@ -34,6 +34,23 @@
 	z-index: 10;
 	background-color: #fff;
 }
-.sot-top.sot-left{
+.sot-bottom{
+	position: sticky;
+	bottom:0;
+	z-index: 20;
+	background-color: #fff;
+}
+.sot-right{
+	position: sticky;
+	right: 0;
+	z-index: 10;
+	background-color: #fff;
+}
+
+
+.sot-top.sot-left ,
+.sot-bottom.sot-left ,
+.sot-top.sot-right ,
+.sot-bottom.sot-right{
 	z-index: 30;
 }

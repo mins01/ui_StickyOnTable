@@ -53,6 +53,8 @@
 		StickyOnTable.apply(document.querySelector("#sot4"))
 		StickyOnTable.apply(document.querySelector("#sot5"))
 		StickyOnTable.apply(document.querySelector("#sot6"))
+		StickyOnTable.apply(document.querySelector("#sot6-2"))
+		StickyOnTable.apply(document.querySelector("#sot6-3"))
 		StickyOnTable.apply(document.querySelector("body")) //일부로 에러냄
 		StickyOnTable.apply(document.querySelector("#sot8"))
 		StickyOnTable.apply(document.querySelector("#sot9"))
@@ -61,13 +63,16 @@
 	</script>
 
 	<style>
-	.sot-top{
+	.sot-top ,.sot-bottom {
 		background-color: #abc !important;
 	}
-	.sot-left{
+	.sot-left , .sot-right{
 		background-color: #cba !important;
 	}
-	.sot-top.sot-left{
+	.sot-top.sot-left ,
+	.sot-bottom.sot-left ,
+	.sot-top.sot-right ,
+	.sot-bottom.sot-right{
 		background-color: #caa !important;
 	}
 	</style>
@@ -490,16 +495,130 @@
 			</div>
 		</div>
 		<div class="my-3">
+			<h3 class="text-center">data-sot-bottom="2" data-sot-right="2"</h3>
+			<div id="sot6-2" class="sot" data-sot-bottom="2" data-sot-right="2"  style="width:300px; height:300px; margin:0 auto;">
+				<table>
+					<colgroup>
+						<col style="width:40px"><col style="width:70px"><col style="width:70px"><col style="width:70px"><col style="width:70px">
+						<col style="width:70px"><col style="width:70px"><col style="width:70px"><col style="width:70px"><col style="width:70px">
+					</colgroup>
+					<tr>
+						<td colspan="2">1</td>
+						<!-- <td>2</td> -->
+						<td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td rowspan="2">2</td>
+						<td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<!-- <td>2</td> -->
+						<td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="my-3">
+			<h3 class="text-center">data-sot-top="1" data-sot-left="2"<br>data-sot-bottom="2" data-sot-right="2"</h3>
+			<div id="sot6-3" class="sot"  data-sot-top="1" data-sot-left="2"  data-sot-bottom="2" data-sot-right="1"  style="width:300px; height:300px; margin:0 auto;">
+				<table>
+					<colgroup>
+						<col style="width:40px"><col style="width:70px"><col style="width:70px"><col style="width:70px"><col style="width:70px">
+						<col style="width:70px"><col style="width:70px"><col style="width:70px"><col style="width:70px"><col style="width:70px">
+					</colgroup>
+					<tr>
+						<td colspan="2">1</td>
+						<!-- <td>2</td> -->
+						<td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<td rowspan="2">2</td>
+						<td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td>
+						<!-- <td>2</td> -->
+						<td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+					<tr>
+						<td>1</td><td>2</td><td>3</td><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		<div class="my-3">
 			<h3 class="text-center">
 				<script>
-					function apply_sot7(t,l) {
+					function apply_sot7(t,l,b,r) {
 						let sot7 = document.querySelector('#sot7');
 						sot7.setAttribute('data-sot-top',t)
 						sot7.setAttribute('data-sot-left',l)
+						sot7.setAttribute('data-sot-bottom',b)
+						sot7.setAttribute('data-sot-right',r)
 						StickyOnTable.apply(sot7)
 					}
 				</script>
-				<form onsubmit="apply_sot7(this.sot_top.value,this.sot_left.value); return false;">
+				<form onsubmit="apply_sot7(this.sot_top.value,this.sot_left.value,this.sot_bottom.value,this.sot_right.value); return false;">
 					data-sot-top="<select name="sot_top">
 						<option value="0">0</option>
 						<option value="1">1</option>
@@ -513,7 +632,7 @@
 						<option value="9">9</option>
 						<option value="10">10</option>
 						<option value="11">11</option>
-					</select>"
+					</select>"<br>
 					data-sot-left="<select name="sot_left">
 						<option value="0">0</option>
 						<option value="1">1</option>
@@ -527,7 +646,35 @@
 						<option value="9">9</option>
 						<option value="10">10</option>
 						<option value="11">11</option>
-					</select>"
+					</select>"<br>
+					data-sot-bottom="<select name="sot_bottom">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+					</select>"<br>
+					data-sot-right="<select name="sot_right">
+						<option value="0">0</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+					</select>"<br>
 					<button>적용</button>
 					<button type="button" onclick="StickyOnTable.reset(document.querySelector('#sot7'))"> 리셋</button>
 				</form>
