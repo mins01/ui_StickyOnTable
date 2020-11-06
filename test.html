@@ -108,61 +108,43 @@
 			<h3 class="text-center">100x100</h3>
 			<div id="sot2" class="sot" data-sot-top="2" data-sot-left="2"  style="width:300px; height:300px; margin:0 auto;">
 				<table>
-					<?
-					for($i0=0,$m0=100;$i0<$m0;$i0++):
-						?>
-						<tr>
-							<?
-							for($i=0,$m=100;$i<$m;$i++):
-								?>
-								<td width="50" height="50"><?=$i?></td>
-								<?
-							endfor;
-							?>
-						</tr>
-						<?
-					endfor;
-					?>
+					<script>
+						for(let i0=0,m0=100;i0<m0;i0++){
+							document.write('<tr>');
+							for(let i=0,m=100;i<m;i++){
+								document.write('<td width="50" height="50">'+i+'</td>');
+							}
+							document.write('</tr>');
+						}
+					</script>
 				</table>
 			</div>
 			<h3 class="text-center">200x100</h3>
 			<div id="sot3" class="sot" data-sot-top="2" data-sot-left="2"  style="width:300px; height:300px; margin:0 auto;">
 				<table>
-					<?
-					for($i0=0,$m0=200;$i0<$m0;$i0++):
-						?>
-						<tr>
-							<?
-							for($i=0,$m=100;$i<$m;$i++):
-								?>
-								<td width="50" height="50"><?=$i?></td>
-								<?
-							endfor;
-							?>
-						</tr>
-						<?
-					endfor;
-					?>
+					<script>
+						for(let i0=0,m0=200;i0<m0;i0++){
+							document.write('<tr>');
+							for(let i=0,m=100;i<m;i++){
+								document.write('<td width="50" height="50">'+i+'</td>');
+							}
+							document.write('</tr>');
+						}
+					</script>
 				</table>
 			</div>
 			<h3 class="text-center">200x200</h3>
 			<div id="sot4" class="sot" data-sot-top="2" data-sot-left="2"  style="width:300px; height:300px; margin:0 auto;">
 				<table>
-					<?
-					for($i0=0,$m0=200;$i0<$m0;$i0++):
-						?>
-						<tr>
-							<?
-							for($i=0,$m=200;$i<$m;$i++):
-								?>
-								<td width="50" height="50"><?=$i?></td>
-								<?
-							endfor;
-							?>
-						</tr>
-						<?
-					endfor;
-					?>
+					<script>
+						for(let i0=0,m0=200;i0<m0;i0++){
+							document.write('<tr>');
+							for(let i=0,m=200;i<m;i++){
+								document.write('<td width="50" height="50">'+i+'</td>');
+							}
+							document.write('</tr>');
+						}
+					</script>
 				</table>
 			</div>
 		</div>
